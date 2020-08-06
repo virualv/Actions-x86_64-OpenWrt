@@ -13,5 +13,16 @@
 # Uncomment a feed source
 sed -i 's/^#\(.*helloworld\)/\1/' feeds.conf.default
 
+mkdir -p package/extra
+
+pushd package/extra
+
+git clone https://github.com/tty228/luci-app-serverchan
+git clone https://github.com/rufengsuixing/luci-app-adguardhome
+git clone -b lede https://github.com/pymumu/luci-app-smartdns
+git clone https://github.com/pymumu/openwrt-smartdns
+
+popd
+
 # Add a feed source
 sed -i '$a src-git lienol https://github.com/Lienol/openwrt-package' feeds.conf.default
