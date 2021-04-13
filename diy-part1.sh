@@ -27,8 +27,17 @@ make && sudo -E make install
 popd
 popd
 
-mkdir -p package/extra
+pushd feeds/packages/net
+git clone https://github.com/pymumu/openwrt-smartdns.git smartdns
+popd
+pushd feeds/luci/applications
+git clone https://github.com/pymumu/luci-app-smartdns.git
+popd
 
+./scripts/feeds install -p package || true
+./scripts/feeds install -p luci || true
+
+mkdir -p package/extra
 pushd package/extra
 
 #git clone https://github.com/tty228/luci-app-serverchan
