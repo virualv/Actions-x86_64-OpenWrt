@@ -12,6 +12,9 @@
 
 # Uncomment a feed source
 
+git config --global user.email "temp@example.com"
+git config --global user.name "temp"
+
 CODE_BASE_PATH=$(pwd)
 
 git checkout origin/master .gitignore
