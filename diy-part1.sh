@@ -52,9 +52,11 @@ popd
 
 cd ${CODE_BASE_PATH}
 # config smartdns
+rm -rf feeds/packages/net/smartdns || true
 git clone https://github.com/pymumu/openwrt-smartdns.git ./feeds/packages/net/smartdns
 
 # luci-app-smartdns
+rm -rf feeds/luci/applications/luci-app-smartdns || true
 git clone -b lede https://github.com/pymumu/luci-app-smartdns.git ./feeds/luci/applications/luci-app-smartdns
 cd ${CODE_BASE_PATH}/package/feeds/luci
 ln -s ../../../feeds/luci/applications/luci-app-smartdns luci-app-smartdns
@@ -62,6 +64,8 @@ ln -s ../../../feeds/luci/applications/luci-app-smartdns luci-app-smartdns
 
 cd ${CODE_BASE_PATH}
 # add some ext packages
+rm -rf package/OpenAppFilter || true
+rm -rf package/luci-app-tcpdump || true
 git clone https://github.com/destan19/OpenAppFilter.git ./package/OpenAppFilter
 git clone https://github.com/KFERMercer/luci-app-tcpdump.git ./package/luci-app-tcpdump
 pushd package/lean
