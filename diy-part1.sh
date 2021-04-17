@@ -52,31 +52,15 @@ popd
 
 cd ${CODE_BASE_PATH}
 # config smartdns
-SMARTDNS_WORKING_DIR="`pwd`/feeds/packages/net/smartdns"
-mkdir $SMARTDNS_WORKING_DIR -p
-rm $SMARTDNS_WORKING_DIR/* -fr
-wget https://github.com/pymumu/openwrt-smartdns/archive/master.zip -O $SMARTDNS_WORKING_DIR/master.zip
-unzip $SMARTDNS_WORKING_DIR/master.zip -d $SMARTDNS_WORKING_DIR
-mv $SMARTDNS_WORKING_DIR/openwrt-smartdns-master/* $SMARTDNS_WORKING_DIR/
-rmdir $SMARTDNS_WORKING_DIR/openwrt-smartdns-master
-rm $SMARTDNS_WORKING_DIR/master.zip
-unset SMARTDNS_WORKING_DIR
+git clone https://github.com/pymumu/openwrt-smartdns.git ./feeds/packages/net/smartdns
 
 # luci-app-smartdns
-SMARTDNS_LUCIBRANCH="lede" #更换此变量
-SMARTDNS_LUCI_WORKING_DIR="`pwd`/feeds/luci/applications/luci-app-smartdns"
-mkdir $SMARTDNS_LUCI_WORKING_DIR -p
-rm $SMARTDNS_LUCI_WORKING_DIR/* -fr
-wget https://github.com/pymumu/luci-app-smartdns/archive/${SMARTDNS_LUCIBRANCH}.zip -O $SMARTDNS_LUCI_WORKING_DIR/${SMARTDNS_LUCIBRANCH}.zip
-unzip $SMARTDNS_LUCI_WORKING_DIR/${SMARTDNS_LUCIBRANCH}.zip -d $SMARTDNS_LUCI_WORKING_DIR
-mv $SMARTDNS_LUCI_WORKING_DIR/luci-app-smartdns-${SMARTDNS_LUCIBRANCH}/* $SMARTDNS_LUCI_WORKING_DIR/
-rmdir $SMARTDNS_LUCI_WORKING_DIR/luci-app-smartdns-${SMARTDNS_LUCIBRANCH}
-rm $SMARTDNS_LUCI_WORKING_DIR/${SMARTDNS_LUCIBRANCH}.zip
-unset SMARTDNS_LUCIBRANCH
-unset SMARTDNS_LUCI_WORKING_DIR
-ln -s ../../../feeds/luci/applications/luci-app-smartdns package/feeds/luci/luci-app-smartdns
+git clone -b lede https://github.com/pymumu/luci-app-smartdns.git ./feeds/luci/applications/luci-app-smartdns
+cd ${CODE_BASE_PATH}/package/feeds/luci
+ln -s ../../../feeds/luci/applications/luci-app-smartdns luci-app-smartdns
 # config smartdns end
 
+cd ${CODE_BASE_PATH}
 # add some ext packages
 git clone https://github.com/destan19/OpenAppFilter.git ./package/OpenAppFilter
 git clone https://github.com/KFERMercer/luci-app-tcpdump.git ./package/luci-app-tcpdump
