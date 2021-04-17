@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -ex
 #
 # Copyright (c) 2019-2020 P3TERX <https://p3terx.com>
 #
@@ -13,5 +13,5 @@
 # Modify default IP
 sed -i 's/192.168.1.1/10.66.0.1/g' package/base-files/files/bin/config_generate
 
-go clean -modcache
-go mod tidy
+# Modify default password to 'admin'
+sed -i "s/^root.*/root:\$1\$1jIp7yWM\$m1gUuNsK3\.rMcVmURKJvx\.:18733:0:99999:7:::/" package/base-files/files/etc/shadow
