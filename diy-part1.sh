@@ -34,6 +34,7 @@ rm -rf package/lean/luci-theme-pink || true
 rm -rf feeds/packages/net/smartdns || true
 rm -rf feeds/luci/applications/luci-app-smartdns || true
 ./scripts/feeds update -a
+./scripts/feeds install -a
 
 # config openclash
 mkdir package/luci-app-openclash
