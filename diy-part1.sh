@@ -30,4 +30,5 @@ git clone https://github.com/esirplayground/luci-app-poweroff.git
 git clone https://github.com/virualv/luci-theme-pink.git
 popd
 
-sed -i '$a src-git kenzo https://github.com/kenzok8/openwrt-packages' feeds.conf.default
+sed -i '$a src-git plus https://github.com/kenzok8/openwrt-packages' feeds.conf.default
+sed -i '$a src-git splus https://github.com/kenzok8/small' feeds.conf.default
