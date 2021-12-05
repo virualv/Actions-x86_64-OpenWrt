@@ -26,6 +26,7 @@ git clone https://github.com/KFERMercer/luci-app-tcpdump.git ./package/luci-app-
 pushd package/lean
 rm -rf luci-theme-argon || true
 #git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git
+git clone https://github.com/esirplayground/luci-app-poweroff.git
 git clone https://github.com/virualv/luci-theme-pink.git
 popd
 
